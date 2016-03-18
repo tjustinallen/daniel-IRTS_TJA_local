@@ -28,9 +28,28 @@
         }
     });
 
+    //Show Report Category as RED if "Serious"
+    $(function isCategorySerious()
+    {
+        var reportCategoryValue = '@Html.DisplayTextFor(model => model.IRP_Category)';
+        var reportCategoryName = '@Html.DisplayNameFor(model => model.IRP_Category): ';
+        if (reportCategoryValue == "Serious")
+        {
+            var result = reportCategoryName.concat(reportCategoryValue.fontcolor("red"));
+            document.getElementById("reportCategory").innerHTML = result;
+        }
+        else if (reportCategoryValue != "Serious")
+        {
+            var result = reportCategoryName.concat(reportCategoryValue.fontcolor("black"));
+            document.getElementById("reportCategory").innerHTML = result;
+        }
+    });
+
 </script>
 
 <h2>Edit an Incident Report</h2>
+<br/>
+<h3 id="reportCategory"></h3>
 
 @using (Html.BeginForm())
 {
@@ -43,40 +62,9 @@
         @Html.HiddenFor(model => model.IRP_ID)
         @Html.HiddenFor(model => model.IRP_ApprovalLevelReq)
 
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <table width="100%" height="100em" border="1">
-            <tr class="tr-ruler">
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-quarter-color">1</td>
-                <td class="td-quarter-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-center-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-quarter-color">1</td>
-                <td class="td-quarter-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-        </table>
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
         <!--Incident Date & Time-->
         <div>
-            <table border="1">
+            <table>
                 <tr>
                     <!--Incident Date-->
                     <td class="set-4-wide">
@@ -103,7 +91,7 @@
 
         <!--Program Name & Location-->
         <div>
-            <table border="1">
+            <table>
                 <tr>
                     <!--Program Name-->
                     <td>
@@ -133,40 +121,9 @@
 
         <hr />
 
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <table width="100%" height="100em" border="1">
-            <tr class="tr-ruler">
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-quarter-color">1</td>
-                <td class="td-quarter-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-center-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-quarter-color">1</td>
-                <td class="td-quarter-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-        </table>
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
         <!--Nature of Incident-->
         <div>
-            <table border="1">
+            <table>
                 <tr>
                     <td colspan="5">
                         @Html.LabelFor(model => model.IRP_Category, htmlAttributes: new { @class = "medium-label" })
@@ -329,41 +286,10 @@
             </table>
         </div>
 
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <table width="100%" height="100em" border="1">
-            <tr class="tr-ruler">
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-quarter-color">1</td>
-                <td class="td-quarter-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-center-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-quarter-color">1</td>
-                <td class="td-quarter-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-        </table>
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
         <!-- Contributing Factors -->
         <div id="ContribFactors" style='display: none;'>
             <hr />
-            <table id="ContribFactorsTable" border="1">
+            <table id="ContribFactorsTable">
                 <tr>
                     <td colspan="6">
                         <label class="medium-label">
@@ -381,9 +307,9 @@
                     <td class="set-4-wide">
                         @Html.DropDownList("IRP_ContribAbuseAllegation", ViewBag.abuseAllegationItems as List<SelectListItem>, new { @class = "medium-textinput" })
                     </td>
-                    <td class="set-3-wide"></td>
+                    <td class="set-3-wide" style="padding-left: 10px"></td>
                     <td class="set-4-wide"></td>
-                    <td class="set-3-wide"></td>
+                    <td class="set-3-wide" style="padding-left: 10px"></td>
                     <td class="set-2-wide"></td>
                 </tr>
                 <!-- Physical Aggression Items -->
@@ -395,7 +321,7 @@
                         @Html.DropDownList("IRP_ContribPhysicalAggression", ViewBag.physicalAggressionItems as List<SelectListItem>, new { @class = "medium-textinput" })
                     </td>
                     <!-- Restraint Start Time -->
-                    <td id="ContribFactors_RestraintStartTime" class="set-3-wide">
+                    <td id="ContribFactors_RestraintStartTime" class="set-3-wide" style="padding-left: 10px">
                         @Html.LabelFor(model => model.IRP_RestraintSTTime, htmlAttributes: new { @class = "small-label" })
                     </td>
                     <td class="set-4-wide">
@@ -403,7 +329,7 @@
                         @Html.ValidationMessageFor(model => model.IRP_RestraintSTTime, "", new { @class = "text-danger" })
                     </td>
                     <!-- Restraint End Time -->
-                    <td id="ContribFactors_RestraintEndTime" class="set-3-wide">
+                    <td id="ContribFactors_RestraintEndTime" class="set-3-wide" style="padding-left: 10px">
                         @Html.LabelFor(model => model.IRP_RestraintENTime, htmlAttributes: new { @class = "small-label" })
                     </td>
                     <td class="set-3-wide">
@@ -420,14 +346,14 @@
                         @Html.DropDownList("IRP_ContribPoliceInvolvement", ViewBag.policeInvolvementItems as List<SelectListItem>, new { @class = "medium-textinput" })
                     </td>
                     <!-- Police Report Number -->
-                    <td id="ContribFactors_PoliceReportNumber" class="set-3-wide">
+                    <td id="ContribFactors_PoliceReportNumber" class="set-3-wide" style="padding-left: 10px">
                         @Html.LabelFor(model => model.IRP_PoliceRepNo, htmlAttributes: new { @class = "small-label" })
                     </td>
                     <td class="set-4-wide">
                         @Html.TextBoxFor(model => model.IRP_PoliceRepNo, new { @class = "medium-textinput", @maxlength = "499", @placeholder = "FHPB06OFF002274" })
                         @Html.ValidationMessageFor(model => model.IRP_PoliceRepNo, "", new { @class = "text-danger" })
                     </td>
-                    <td class="set-3-wide"></td>
+                    <td class="set-3-wide" style="padding-left: 10px"></td>
                     <td class="set-3-wide"></td>
                 </tr>
                 <!-- Injury Items -->
@@ -440,14 +366,14 @@
                         @Html.ValidationMessageFor(model => model.IRP_ContribInjuryItems, "", new { @class = "text-danger" })
                     </td>
                     <!-- Injury Type -->
-                    <td id="ContribFactors_InjuryType" class="set-3-wide">
+                    <td id="ContribFactors_InjuryType" class="set-3-wide" style="padding-left: 10px">
                         @Html.LabelFor(model => model.IRP_InjuryType, htmlAttributes: new { @class = "small-label" })
                     </td>
                     <td class="set-4-wide">
                         @Html.TextBoxFor(model => model.IRP_InjuryType, new { @class = "medium-textinput", @maxlength = "499", @placeholder = "cut, sprain" })
                         @Html.ValidationMessageFor(model => model.IRP_InjuryType, "", new { @class = "text-danger" })
                     </td>
-                    <td class="set-3-wide"></td>
+                    <td class="set-3-wide" style="padding-left: 10px"></td>
                     <td class="set-3-wide"></td>
                 </tr>
                 <!-- Injury Body Part -->
@@ -460,14 +386,14 @@
                         @Html.ValidationMessageFor(model => model.IRP_BodyPart, "", new { @class = "text-danger" })
                     </td>
                     <!-- Injury FollowUp -->
-                    <td id="ContribFactors_InjuryFollowUp" class="set-3-wide">
+                    <td id="ContribFactors_InjuryFollowUp" class="set-3-wide" style="padding-left: 10px">
                         @Html.LabelFor(model => model.IRP_InjuryFollowUp, htmlAttributes: new { @class = "small-label" })
                     </td>
                     <td class="set-4-wide">
                         @Html.DropDownList("IRP_InjuryFollowUp", ViewBag.injuryFollowUpItems as List<SelectListItem>, new { @class = "medium-textinput" })
                         @Html.ValidationMessageFor(model => model.IRP_InjuryFollowUp, "", new { @class = "text-danger" })
                     </td>
-                    <td class="set-3-wide"></td>
+                    <td class="set-3-wide" style="padding-left: 10px"></td>
                     <td class="set-3-wide"></td>
                 </tr>
                 <!-- Unplanned Hospitalization -->
@@ -479,9 +405,9 @@
                         @Html.DropDownList("IRP_ContribUnplannedHospitalization", ViewBag.unplannedHospitalizationItems as List<SelectListItem>, new { @class = "medium-textinput" })
                         @Html.ValidationMessageFor(model => model.IRP_ContribUnplannedHospitalization, "", new { @class = "text-danger" })
                     </td>
-                    <td class="set-3-wide"></td>
+                    <td class="set-3-wide" style="padding-left: 10px"></td>
                     <td class="set-4-wide"></td>
-                    <td class="set-3-wide"></td>
+                    <td class="set-3-wide" style="padding-left: 10px"></td>
                     <td class="set-3-wide"></td>
                 </tr>
                 <!-- Sexual Encounter -->
@@ -493,9 +419,9 @@
                         @Html.DropDownList("IRP_ContribSexualEncounter", ViewBag.sexualEncounterItems as List<SelectListItem>, new { @class = "medium-textinput" })
                         @Html.ValidationMessageFor(model => model.IRP_ContribSexualEncounter, "", new { @class = "text-danger" })
                     </td>
-                    <td class="set-3-wide"></td>
+                    <td class="set-3-wide" style="padding-left: 10px"></td>
                     <td class="set-4-wide"></td>
-                    <td class="set-3-wide"></td>
+                    <td class="set-3-wide" style="padding-left: 10px"></td>
                     <td class="set-3-wide"></td>
                 </tr>
                 <!-- Seclusion Items -->
@@ -508,7 +434,7 @@
                         @Html.ValidationMessageFor(model => model.IRP_ContribSeclusion, "", new { @class = "text-danger" })
                     </td>
                     <!-- Seclusion Start Time -->
-                    <td id="ContribFactors_SeclusionStartTime" class="set-3-wide">
+                    <td id="ContribFactors_SeclusionStartTime" class="set-3-wide" style="padding-left: 10px">
                         @Html.LabelFor(model => model.IRP_SeclusionSTTime, htmlAttributes: new { @class = "small-label" })
                     </td>
                     <td class="set-4-wide">
@@ -516,7 +442,7 @@
                         @Html.ValidationMessageFor(model => model.IRP_SeclusionSTTime, "", new { @class = "text-danger" })
                     </td>
                     <!-- Seclusion End Time -->
-                    <td id="ContribFactors_SeclusionEndTime" class="set-3-wide">
+                    <td id="ContribFactors_SeclusionEndTime" class="set-3-wide" style="padding-left: 10px">
                         @Html.LabelFor(model => model.IRP_SeclusionENTime, htmlAttributes: new { @class = "small-label" })
                     </td>
                     <td class="set-3-wide">
@@ -529,40 +455,9 @@
 
         <hr />
 
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <table width="100%" height="100em" border="1">
-            <tr class="tr-ruler">
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-quarter-color">1</td>
-                <td class="td-quarter-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-center-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-quarter-color">1</td>
-                <td class="td-quarter-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-        </table>
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <!--Victim First Nmae & Victim Last Name-->
+        <!--Victim First Name & Victim Last Name-->
         <div>
-            <table border="1">
+            <table>
                 <tr>
                     <td colspan="5">
                         <label class="medium-label">
@@ -598,7 +493,7 @@
 
         <!--Report On-->
         <div id="reportOn">
-            <table border="1">
+            <table>
                 <tr>
                     <td colspan="4">
                         <label class="medium-label">
@@ -626,7 +521,7 @@
 
         <!--Prepared By-->
         <div>
-            <table border="1">
+            <table>
                 <tr>
                     <td colspan="5">
                         <label class="medium-label">
@@ -660,40 +555,9 @@
 
         <hr />
 
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <table width="100%" height="100em" border="1">
-            <tr class="tr-ruler">
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-quarter-color">1</td>
-                <td class="td-quarter-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-center-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-quarter-color">1</td>
-                <td class="td-quarter-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-        </table>
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
         <!-- Witness Name -->
         <div>
-            <table border="1">
+            <table>
                 <tr>
                     <td class="set-4-wide">
                         @Html.LabelFor(model => model.IRP_Witness, htmlAttributes: new { @class = "medium-label" })
@@ -720,7 +584,7 @@
 
         <!-- Notification -->
         <div>
-            <table border="1">
+            <table>
                 <tr>
                     <td class="set-4-wide">
                         @Html.LabelFor(model => model.IRP_Notified, htmlAttributes: new { @class = "medium-label" })
@@ -742,42 +606,10 @@
                 </tr>
             </table>
         </div>
-
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <table width="100%" height="100em" border="1">
-            <tr class="tr-ruler">
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-quarter-color">1</td>
-                <td class="td-quarter-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-center-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-quarter-color">1</td>
-                <td class="td-quarter-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-        </table>
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
         
         <!-- Description -->
         <div>
-            <table border="1">
+            <table>
                 <tr>
                     <td class="set-4-wide">
                         @Html.LabelFor(model => model.IRP_Description, htmlAttributes: new { @class = "medium-label" })
@@ -802,7 +634,7 @@
 
         <!--Risk Manager Comment-->
         <div>
-            <table border="1">
+            <table>
                 <tr>
                     <td class="set-4-wide">
                         @Html.LabelFor(model => model.IRP_RiskMgrComment, htmlAttributes: new { @class = "medium-label" })

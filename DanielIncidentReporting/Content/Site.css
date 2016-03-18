@@ -23,6 +23,11 @@ textarea {
     max-width: 280px;
 }
 
+h3, .h3 {
+    text-align: left;
+    font-weight: bold;
+}
+
 h2, .h2 {
     text-align: center;
 }
@@ -195,6 +200,7 @@ h2, .h2 {
 .set-1-wide{
   max-width:none;
   width: 50px;
+  padding-left: 0px;
   padding-top: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -203,6 +209,7 @@ h2, .h2 {
 .set-2-wide{
   max-width:none;
   width: 106px;
+  padding-left: 0px;
   padding-top: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -211,6 +218,7 @@ h2, .h2 {
 .set-3-wide{
   max-width:none;
   width: 163px;
+  padding-left: 0px;
   padding-top: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -219,6 +227,7 @@ h2, .h2 {
 .set-4-wide{
   max-width:none;
   width: 213px;
+  padding-left: 0px;
   padding-top: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -227,6 +236,7 @@ h2, .h2 {
 .set-5-wide{
   max-width:none;
   width: 271px;
+  padding-left: 0px;
   padding-top: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -235,6 +245,7 @@ h2, .h2 {
 .set-6-wide{
   max-width:none;
   width: 324px;
+  padding-left: 0px;
   padding-top: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -243,6 +254,7 @@ h2, .h2 {
 .set-17-wide{
   max-width:none;
   width: 923px;
+  padding-left: 0px;
   padding-top: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -251,6 +263,7 @@ h2, .h2 {
 .set-21-wide{
   max-width:none;
   width: 1139px;
+  padding-left: 0px;
   padding-top: 0;
   margin-top: 0;
   margin-bottom: 0;
