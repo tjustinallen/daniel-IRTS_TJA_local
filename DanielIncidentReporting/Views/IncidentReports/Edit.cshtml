@@ -44,26 +44,33 @@
             @Html.HiddenFor(model => model.IRP_ApprovalLevelReq)
 
             <!--Prepared By-->
-            <div class="container form-group">
+            <div>
                 <label>
                     Reported By
                 </label>
                 <br/>
-                <br />
-                <!--Prepared By First Name-->
-                <div class="row-margin">
-                    @Html.LabelFor(model => model.IRP_PreparedByFirstName, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:25px;" })
-                    @Html.EditorFor(model => model.IRP_PreparedByFirstName, new { htmlAttributes = new { @class = "form-control", maxlength = "99" } })
-                    @Html.ValidationMessageFor(model => model.IRP_PreparedByFirstName, "", new { @class = "text-danger" })
-                </div>
-                <!--Prepared By Last Name-->
-                <div class="row-margin">
-                    @Html.LabelFor(model => model.IRP_PreparedByLastName, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:25px;" })
-                    @Html.EditorFor(model => model.IRP_PreparedByLastName, new { htmlAttributes = new { @class = "form-control", maxlength = "99" } })
-                    @Html.ValidationMessageFor(model => model.IRP_PreparedByLastName, "", new { @class = "text-danger" })
-                </div>
+                <br/>
+                <table width="100%">
+                    <tr>
+                        <!--Prepared By First Name-->
+                        <td width="24%" align="center">
+                            @Html.LabelFor(model => model.IRP_PreparedByFirstName)
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.IRP_PreparedByFirstName, new { htmlAttributes = new { @class = "form-control", maxlength = "99" } })
+                            @Html.ValidationMessageFor(model => model.IRP_PreparedByFirstName, "", new { @class = "text-danger" })
+                        </td>
+                        <!--Prepared By Last Name-->
+                        <td width="25%" align="center">
+                            @Html.LabelFor(model => model.IRP_PreparedByLastName)
+                        </td>
+                        <td>  
+                            @Html.EditorFor(model => model.IRP_PreparedByLastName, new { htmlAttributes = new { @class = "form-control", maxlength = "99" } })
+                            @Html.ValidationMessageFor(model => model.IRP_PreparedByLastName, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
             </div>
-            
             <hr />
 
             <!--Program Name-->
@@ -110,22 +117,32 @@
                     @Html.RadioButton("IRP_ReportOn", "N/A") N/A
                     @Html.ValidationMessageFor(model => model.IRP_ReportOn, "", new {@class = "text-danger"})
                 </div>
-                <br/>
-                <!--Victim First Name-->
-                <div class="row-margin">
-                    @Html.LabelFor(model => model.IRP_VictimFirstName, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:25px;" })
-                    @Html.EditorFor(model => model.IRP_VictimFirstName, new { htmlAttributes = new { @class = "form-control", maxlength = "99" } })
-                    @Html.ValidationMessageFor(model => model.IRP_VictimFirstName, "", new { @class = "text-danger" })
-                </div>
-                <!--Victim Last Name-->
-                <div class="row-margin">
-                    @Html.LabelFor(model => model.IRP_VictimLastName, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:25px;" })
-                    @Html.EditorFor(model => model.IRP_VictimLastName, new { htmlAttributes = new { @class = "form-control", maxlength = "99" } })
-                    @Html.ValidationMessageFor(model => model.IRP_VictimLastName, "", new { @class = "text-danger" })
-                </div>
+                <table width="100%">
+                    <tr>
+                        <!--Victim First Name-->
+                        <td width="24%" align="center">
+                            @Html.LabelFor(model => model.IRP_VictimFirstName)
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.IRP_VictimFirstName, new { htmlAttributes = new { @class = "form-control", maxlength = "99" } })
+                            @Html.ValidationMessageFor(model => model.IRP_VictimFirstName, "", new { @class = "text-danger" })
+                        </td>
+                        <!--Victim Last Name-->
+                        <td width="25%" align="center">
+                            @Html.LabelFor(model => model.IRP_VictimLastName)
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.IRP_VictimLastName, new { htmlAttributes = new { @class = "form-control", maxlength = "99" } })
+                            @Html.ValidationMessageFor(model => model.IRP_VictimLastName, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
             </div>
 
-                <hr />
+
+
+
+            <hr />
                 <!--Nature of Incident-->
                 <!--Nature of Incident Column 1-->
                 <div class="container form-group">
@@ -344,15 +361,41 @@
                 </div>
             </div>
 
-
                 <hr />
 
-                <!-- Description -->
+                <!-- Description with table layout -- work in progress (TJA 3/17/16)-->
                 <div class="container form-group">
+                    <table border="1" width="100%">
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => model.IRP_Description)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100%">
+                                @Html.TextAreaFor(model => model.IRP_Description, new { @class = "form-control", @width = 100, @rows = 15})
+                                @*@Html.TextAreaFor(model => model.IRP_Description, new { htmlAttributes = new { @class = "form-control" }, @cols = "100", @rows = "4", @maxlength = "999" })*@
+                                @Html.ValidationMessageFor(model => model.IRP_Description, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <small class="text-muted">
+                                    Maximum 1000 characters allowed.
+                                </small>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+
+                <!-- Description Commented out and intended to be replaced by new version with table layout (above)-(TJA 3/17/16)-->
+                @*<div class="container form-group">
                     <div class="row-margin">
                         @Html.LabelFor(model => model.IRP_Description, htmlAttributes: new { @class = "col-md-2" })
                         <div class="col-md-1"></div>
-                        @Html.TextAreaFor(model => model.IRP_Description, new { htmlAttributes = new { @class = "form-control" }, @cols = "80", @rows = "4", @maxlength = "999" })
+                        @Html.TextAreaFor(model => model.IRP_Description, new { htmlAttributes = new { @class = "form-control" }, @cols = "100", @rows = "4", @maxlength = "999" })
                         <br />
                         <div class="col-md-3"></div>
                         <small class="text-muted">
@@ -360,13 +403,12 @@
                         </small>
                         @Html.ValidationMessageFor(model => model.IRP_Description, "", new { @class = "text-danger" })
                     </div>
-                </div>
+                </div>*@
 
                 <hr />
 
                 <!-- Witness Name -->
                 <div class="container form-group">
-                    <!-- TODO: Change to model.IRP_NotifiedPerson -->
                     <div class="row-margin">
                         @Html.LabelFor(model => model.IRP_Witness, htmlAttributes: new { @class = "col-md-2" })
                         <div class="col-md-1"></div>
