@@ -43,32 +43,6 @@
         @Html.HiddenFor(model => model.IRP_ID)
         @Html.HiddenFor(model => model.IRP_ApprovalLevelReq)
 
-        <table width="100%" height="100em" border="1">
-            <tr class="tr-ruler">
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-quarter-color">1</td>
-                <td class="td-quarter-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-center-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td class="td-quarter-color">1</td>
-                <td class="td-quarter-color">1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-        </table>
-
         <!--Incident Date & Time-->
         <div>
             <table border="1">
@@ -81,7 +55,7 @@
                         @Html.TextBoxFor(model => model.IRP_IncidentDate, "{0:MM/dd/yyyy}", new { @class = "medium-textinput datepicker" })
                         @Html.ValidationMessageFor(model => model.IRP_IncidentDate, "", new { @class = "text-danger" })
                     </td>
-                    <td class="small-filler"></td>
+                    <td class="set-1-wide"></td>
                     <!--Incident Time-->
                     <td>
                         @Html.LabelFor(model => model.IRP_IncidentTime, htmlAttributes: new { @class = "medium-label" })
@@ -108,7 +82,7 @@
                         @Html.DropDownListFor(model => model.IRP_ProgramName, (SelectList)ViewBag.programs, new { @class = "medium-textinput" })
                         @Html.ValidationMessageFor(model => model.IRP_ProgramName, "", new { @class = "text-danger" })
                     </td>
-                    <td class="small-filler"></td>
+                    <td class="set-1-wide"></td>
                     <!--Location-->
                     <td>
                         @Html.LabelFor(model => model.IRP_Location, htmlAttributes: new { @class = "medium-label" })
@@ -128,11 +102,24 @@
 
         <hr />
         
+        <!--******************************************************************************************************************-->
+        <!--******************************************************************************************************************-->
+        <!--******************************************************************************************************************-->
+        <table width="100%" height="100em" border="1"><tr class="tr-ruler">
+        <td>1</td><td>1</td><td>1</td><td>1</td><td class="td-quarter-color">1</td>
+        <td class="td-quarter-color">1</td><td>1</td><td>1</td><td>1</td>
+        <td>1</td><td class="td-center-color">1</td><td>1</td><td>1</td>
+        <td>1</td><td>1</td><td class="td-quarter-color">1</td>
+        <td class="td-quarter-color">1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr></table>
+        <!--******************************************************************************************************************-->
+        <!--******************************************************************************************************************-->
+        <!--******************************************************************************************************************-->
+
         <!--Nature of Incident-->
         <div>
             <table width="100%" border="1">
                 <tr>
-                    <td colspan="3">
+                    <td colspan="5">
                         @Html.LabelFor(model => model.IRP_Category, htmlAttributes: new { @class = "medium-label" })
                         <br />
                         <br />
@@ -140,17 +127,19 @@
                 </tr>
                 <!--Header Row-->
                 <tr>
-                    <th>
+                    <th class="set-5-wide">
                         CATEGORY A (Serious)
                         <br />
                         <br />
                     </th>
-                    <th>
+                    <td class="set-3-wide"></td>
+                    <th class="set-5-wide">
                         CATEGORY B (Regular)
                         <br />
                         <br />
                     </th>
-                    <th>
+                    <td class="set-3-wide"></td>
+                    <th class="set-5-wide">
                         CATEGORY C (Regular)
                         <br />
                         <br />
@@ -158,17 +147,19 @@
                 </tr>
                 <!--Row 1-->
                 <tr>
-                    <td>
+                    <td class="set-5-wide">
                         <!--Abuse Allegation-->
                         <input type="checkbox" name="IRP_AbuseAllegation" id="cBox_AbuseAllegation" onclick="displayContrib(this, '#ContribFactors_AbuseAllegation', '#IRP_ContribAbuseAllegation')" value="1" />&nbsp&nbsp Abuse Allegation
                         <br />
                     </td>
-                    <td>
+                    <td class="set-3-wide"></td>
+                    <td class="set-5-wide">
                         <!--AMA-->
                         <input type="checkbox" name="IRP_AMA" id="cBox_AMA" value="1" />&nbsp&nbsp AMA
                         <br />
                     </td>
-                    <td>
+                    <td class="set-3-wide"></td>
+                    <td class="set-5-wide">
                         <!--Property Damage-->
                         <input type="checkbox" name="IRP_PropertyDamage" id="cBox_PropertyDamage" value="1" />&nbsp&nbsp Property Damage
                         <br />
@@ -176,17 +167,19 @@
                 </tr>
                 <!--Row 2-->
                 <tr>
-                    <td>
+                    <td class="set-5-wide">
                         <!--Death-->
                         <input type="checkbox" name="IRP_Death" id="cBox_Death" value="1" />&nbsp&nbsp Death
                         <br />
                     </td>
-                    <td>
+                    <td class="set-3-wide"></td>
+                    <td class="set-5-wide">
                         <!--Sexual Encounter-->
                         <input type="checkbox" name="IRP_SexualEncounter" id="cBox_SexualEncounter" onclick="displayContrib(this, '#ContribFactors_SexualEncounter', '#IRP_ContribSexualEncounter')" value="1" />&nbsp&nbsp Sexual Encounter
                         <br />
                     </td>
-                    <td>
+                    <td class="set-3-wide"></td>
+                    <td class="set-5-wide">
                         <!--Property Missing-->
                         <input type="checkbox" name="IRP_PropertyMissing" id="cBox_PropertyMissing" value="1" />&nbsp&nbsp Property Missing
                         <br />
@@ -194,17 +187,19 @@
                 </tr>
                 <!--Row 3-->
                 <tr>
-                    <td>
+                    <td class="set-5-wide">
                         <!--Suicicde Gestures-->
                         <input type="checkbox" name="IRP_SuicideGestures" id="cBox_SuicideGestures" value="1" />&nbsp&nbsp Suicide Gestures
                         <br />
                     </td>
-                    <td>
+                    <td class="set-3-wide"></td>
+                    <td class="set-5-wide">
                         <!--Substace Abuse-->
                         <input type="checkbox" name="IRP_SubstanceAbuse" id="cBox_SubstanceAbuse" value="1" />&nbsp&nbsp Substance Abuse
                         <br />
                     </td>
-                    <td>
+                    <td class="set-3-wide"></td>
+                    <td class="set-5-wide">
                         <!--Theft-->
                         <input type="checkbox" name="IRP_Theft" id="cBox_Theft" value="1" />&nbsp&nbsp Theft
                         <br />
@@ -212,17 +207,19 @@
                 </tr>
                 <!--Row 4-->
                 <tr>
-                    <td>
+                    <td class="set-5-wide">
                         <!--Unplanned Hospitalization-->
                         <input type="checkbox" name="IRP_UnplannedHospitalization" id="cBox_UnplannedHospitalization" onclick="displayContrib(this, '#ContribFactors_UnplannedHospitalization', '#IRP_ContribUnplannedHospitalization')" value="1" />&nbsp&nbsp Unplanned Hospitalization
                         <br />
                     </td>
-                    <td>
+                    <td class="set-3-wide"></td>
+                    <td class="set-5-wide">
                         <!--Medication Error-->
                         <input type="checkbox" name="IRP_MedicationError" id="cBox_MedicationError" value="1" />&nbsp&nbsp Medication Error
                         <br />
                     </td>
-                    <td>
+                    <td class="set-3-wide"></td>
+                    <td class="set-5-wide">
                         <!--Other-->
                         <input type="checkbox" name="IRP_Other" id="cBox_Other" value="1" />&nbsp&nbsp Other
                         <br />
@@ -230,53 +227,55 @@
                 </tr>
                 <!--Row 5-->
                 <tr>
-                    <td>
+                    <td class="set-5-wide">
                         <!--Police/Fire Involvement-->
                         <input type="checkbox" name="IRP_PoliceFire" id="cBox_PoliceFire" onclick="displayContrib(this, '#ContribFactors_PoliceInvolvement', '#IRP_ContribPoliceInvolvement')" value="1" />&nbsp&nbsp Police/Fire/Rescue Involvement
                         <br />
                     </td>
-                    <td>
+                    <td class="set-3-wide"></td>
+                    <td class="set-5-wide">
                         <!--Injury-->
                         <input type="checkbox" name="IRP_Injury" id="cBox_Injury" onclick="displayContrib(this, '#ContribFactors_InjuryItems', '#IRP_ContribInjuryItems')" value="1" />&nbsp&nbsp Injury
                         <br />
                     </td>
-                    <td>
-                    </td>
+                    <td class="set-3-wide"></td>
+                    <td class="set-5-wide"></td>
                 </tr>
                 <!--Row 6-->
                 <tr>
-                    <td>
-                    <td>
+                    <td class="set-5-wide"></td>
+                    <td class="set-3-wide"></td>
+                    <td class="set-5-wide">
                         <!--Client Grievance-->
                         <input type="checkbox" name="IRP_ClientGrievance" id="cBox_ClientGrievance" value="1" />&nbsp&nbsp Client Grievance
                         <br />
                     </td>
-                    <td>
-                    </td>
+                    <td class="set-3-wide"></td>
+                    <td class="set-5-wide"></td>
                 </tr>
                 <!--Row 7-->
                 <tr>
-                    <td>
-                    </td>
-                    <td>
+                    <td class="set-5-wide"></td>
+                    <td class="set-3-wide"></td>
+                    <td class="set-5-wide">
                         <!--Physical Restraint-->
                         <input type="checkbox" name="IRP_PhysicalRestraint" id="cBox_PhysicalRestraint" onclick="displayContrib(this, '#ContribFactors_PhysicalAggression', '#IRP_ContribPhysicalAggression')" value="1" />&nbsp&nbsp Physical Restraint
                         <br />
                     </td>
-                    <td>
-                    </td>
+                    <td class="set-3-wide"></td>
+                    <td class="set-5-wide"></td>
                 </tr>
                 <!--Row 8-->
                 <tr>
-                    <td>
-                    </td>
-                    <td>
+                    <td class="set-5-wide"></td>
+                    <td class="set-3-wide"></td>
+                    <td class="set-5-wide">
                         <!--Seclusion-->
                         <input type="checkbox" name="IRP_Seclusion" id="cBox_Seclusion" onclick="displayContrib(this, '#ContribFactors_Seclusion', '#IRP_ContribSeclusion')" value="1" />&nbsp&nbsp Seclusion
                         <br />
                     </td>
-                    <td>
-                    </td>
+                    <td class="set-3-wide"></td>
+                    <td class="set-5-wide"></td>
                 </tr>
             </table>
         </div>

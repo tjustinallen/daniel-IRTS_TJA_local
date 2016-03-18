@@ -84,13 +84,6 @@ h2, .h2 {
   margin-bottom: 0;
 }
 
-.small-filler{
-  max-width:none;
-  width: 53px;
-  padding-top: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-}
 
 /*used for coloring when testing design layout - not for production/release -- TJA*/
 .tr-ruler{
@@ -105,30 +98,58 @@ h2, .h2 {
   background-color: forestgreen;
 }
 
-.td-1-wide{
+.set-1-wide{
+  max-width:none;
   width: 53px;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.td-2-wide{
+.set-2-wide{
+  max-width:none;
   width: 106px;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.td-3-wide{
+.set-3-wide{
+  max-width:none;
   width: 159px;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.td-4-wide{
+.set-4-wide{
+  max-width:none;
   width: 212px;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.td-5-wide{
+.set-5-wide{
+  max-width:none;
   width: 265px;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.td-6-wide{
+.set-6-wide{
+  max-width:none;
   width: 265px;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.td-21-wide{
+.set-21-wide{
+  max-width:none;
   width: 1139px;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
