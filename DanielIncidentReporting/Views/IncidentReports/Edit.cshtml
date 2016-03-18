@@ -38,14 +38,14 @@
     <div class="form-horizontal">
 
         <hr />
-        
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.IRP_ID)
         @Html.HiddenFor(model => model.IRP_ApprovalLevelReq)
 
         <!--Incident Date & Time-->
         <div>
-            <table border="1">
+            <table>
                 <tr>
                     <!--Incident Date-->
                     <td>
@@ -69,10 +69,10 @@
         </div>
 
         <hr />
-        
+
         <!--Program Name & Location-->
         <div>
-            <table border="1">
+            <table>
                 <tr>
                     <!--Program Name-->
                     <td>
@@ -101,23 +101,10 @@
         </script>
 
         <hr />
-        
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <table width="100%" height="100em" border="1"><tr class="tr-ruler">
-        <td>1</td><td>1</td><td>1</td><td>1</td><td class="td-quarter-color">1</td>
-        <td class="td-quarter-color">1</td><td>1</td><td>1</td><td>1</td>
-        <td>1</td><td class="td-center-color">1</td><td>1</td><td>1</td>
-        <td>1</td><td>1</td><td class="td-quarter-color">1</td>
-        <td class="td-quarter-color">1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr></table>
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
-        <!--******************************************************************************************************************-->
 
         <!--Nature of Incident-->
         <div>
-            <table width="100%" border="1">
+            <table>
                 <tr>
                     <td colspan="5">
                         @Html.LabelFor(model => model.IRP_Category, htmlAttributes: new { @class = "medium-label" })
@@ -279,126 +266,222 @@
                 </tr>
             </table>
         </div>
+
+        <!--******************************************************************************************************************-->
+        <!--******************************************************************************************************************-->
+        <!--******************************************************************************************************************-->
+        <table width="100%" height="100em" border="1">
+            <tr class="tr-ruler">
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td class="td-quarter-color">1</td>
+                <td class="td-quarter-color">1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td class="td-center-color">1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td class="td-quarter-color">1</td>
+                <td class="td-quarter-color">1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <!--******************************************************************************************************************-->
+        <!--******************************************************************************************************************-->
+        <!--******************************************************************************************************************-->
         
+        <!-- Contributing Factors -->
+        <div id="ContribFactors">
+            <hr />
+            <label class="control-label">Contributing Factors</label>
+            <br />
+            <br />
+            <table width="100%">
+                <tr>
+                    <!--Prepared By First Name-->
+                    <td width="24%" align="center">
+                        @Html.LabelFor(model => model.IRP_PreparedByFirstName)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.IRP_PreparedByFirstName, new { htmlAttributes = new { @class = "form-control", maxlength = "99" } })
+                        @Html.ValidationMessageFor(model => model.IRP_PreparedByFirstName, "", new { @class = "text-danger" })
+                    </td>
+                    <!--Prepared By Last Name-->
+                    <td width="25%" align="center">
+                        @Html.LabelFor(model => model.IRP_PreparedByLastName)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.IRP_PreparedByLastName, new { htmlAttributes = new { @class = "form-control", maxlength = "99" } })
+                        @Html.ValidationMessageFor(model => model.IRP_PreparedByLastName, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
         <!-- Contributing Factors -->
         <div id="ContribFactors" style='display: none;'>
             <hr />
-            <label class="control-label">Contributing Factors</label><br /><br />
-            <!-- Abuse Allegation -->
-            <div class="row-margin" id="ContribFactors_AbuseAllegation" style='display: none;'>
-                @Html.LabelFor(model => model.IRP_ContribAbuseAllegation, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:25px;" })
-                @Html.DropDownList("IRP_ContribAbuseAllegation", ViewBag.abuseAllegationItems as List<SelectListItem>, new { @class = "form-control", @style = "display:none" })
-            </div>
-            <!-- Physical Aggression Items -->
-            <div class="row-margin" id="ContribFactors_PhysicalAggression" style='display: none;'>
-                @Html.LabelFor(model => model.IRP_ContribPhysicalAggression, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:25px;" })
-                @Html.DropDownList("IRP_ContribPhysicalAggression", ViewBag.physicalAggressionItems as List<SelectListItem>, new { @class = "form-control", @style = "display:none" })
+            <label class="control-label">Contributing Factors</label>
+            <br />
+            <br />
+            <table>
+                <!-- Abuse Allegation -->
+                <tr id="ContribFactors_AbuseAllegation" >
+                    <td>
+                        @Html.LabelFor(model => model.IRP_ContribAbuseAllegation, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:25px;" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("IRP_ContribAbuseAllegation", ViewBag.abuseAllegationItems as List<SelectListItem>, new { @class = "form-control", @style = "display:none" })
+                    </td>
+                <!-- Physical Aggression Items -->
+                <tr id="ContribFactors_PhysicalAggression">
+                    <td>
+                        @Html.LabelFor(model => model.IRP_ContribPhysicalAggression, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:25px;" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("IRP_ContribPhysicalAggression", ViewBag.physicalAggressionItems as List<SelectListItem>, new { @class = "form-control", @style = "display:none" })
+                   </td>
+                </tr>
                 <!-- Restraint Start Time -->
-                <div id="ContribFactors_RestraintStartTime" style='display: none;'>
-                    <div>
+                <tr id="ContribFactors_RestraintStartTime">
+                    <td>
                         @Html.LabelFor(model => model.IRP_RestraintSTTime, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:50px;" })
-                        <div class="row-margin">
-                            @Html.EditorFor(model => model.IRP_RestraintSTTime, new { htmlAttributes = new { @class = "form-control", @type = "time", @maxlength = "249", @placeholder = "Restraint Start Time" } })
-                            @Html.ValidationMessageFor(model => model.IRP_RestraintSTTime, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.IRP_RestraintSTTime, new { htmlAttributes = new { @class = "form-control", @type = "time", @maxlength = "249", @placeholder = "Restraint Start Time" } })
+                        @Html.ValidationMessageFor(model => model.IRP_RestraintSTTime, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
                 <!-- Restraint End Time -->
-                <div id="ContribFactors_RestraintEndTime" style='display: none;'>
-                    <div>
+                <tr id="ContribFactors_RestraintEndTime">
+                    <td>
                         @Html.LabelFor(model => model.IRP_RestraintENTime, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:50px;" })
-                        <div class="row-margin">
-                            @Html.EditorFor(model => model.IRP_RestraintENTime, new { htmlAttributes = new { @class = "form-control", @type = "time", @maxlength = "249", @placeholder = "Restraint End Time" } })
-                            @Html.ValidationMessageFor(model => model.IRP_RestraintENTime, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Police Involvement -->
-            <div class="row-margin" id="ContribFactors_PoliceInvolvement" style='display: none;'>
-                @Html.LabelFor(model => model.IRP_ContribPoliceInvolvement, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:25px;" })
-                @Html.DropDownList("IRP_ContribPoliceInvolvement", ViewBag.policeInvolvementItems as List<SelectListItem>, new { @class = "form-control", @style = "display:none" })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.IRP_RestraintENTime, new { htmlAttributes = new { @class = "form-control", @type = "time", @maxlength = "249", @placeholder = "Restraint Start Time" } })
+                        @Html.ValidationMessageFor(model => model.IRP_RestraintENTime, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <!-- Police Involvement -->
+                <tr id="ContribFactors_PoliceInvolvement">
+                    <td>
+                        @Html.LabelFor(model => model.IRP_ContribPoliceInvolvement, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:50px;" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("IRP_ContribPoliceInvolvement", ViewBag.policeInvolvementItems as List<SelectListItem>, new { @class = "form-control", @style = "display:none" })
+                    </td>
+                </tr>
                 <!-- Police Report Number -->
-                <div id="ContribFactors_PoliceReportNumber" style='display: none;'>
-                    <div>
+                <tr id="ContribFactors_PoliceReportNumber">
+                    <td>
                         @Html.LabelFor(model => model.IRP_PoliceRepNo, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:50px;" })
-                        <div class="row-margin">
-                            @Html.EditorFor(model => model.IRP_PoliceRepNo, new { htmlAttributes = new { @class = "form-control", maxlength = "249", @placeholder = "Police Report Number" } })
-                            @Html.ValidationMessageFor(model => model.IRP_PoliceRepNo, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Injury Items -->
-            <div class="row-margin" id="ContribFactors_InjuryItems" style='display: none;'>
-                @Html.LabelFor(model => model.IRP_ContribInjuryItems, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:25px;" })
-                @Html.DropDownList("IRP_ContribInjuryItems", ViewBag.injuryItems as List<SelectListItem>, new { @class = "form-control", @style = "display:none" })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.IRP_PoliceRepNo, new { htmlAttributes = new { @class = "form-control", @maxlength = "249", @placeholder = "Restraint Start Time" } })
+                        @Html.ValidationMessageFor(model => model.IRP_PoliceRepNo, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <!-- Injury Items -->
+                <tr id="ContribFactors_InjuryItems">
+                    <td>
+                        @Html.LabelFor(model => model.IRP_ContribInjuryItems, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:50px;" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("IRP_ContribInjuryItems", ViewBag.injuryItems as List<SelectListItem>, new { @class = "form-control", @style = "display:none" })
+                        @Html.ValidationMessageFor(model => model.IRP_ContribInjuryItems, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
                 <!-- Injury Type -->
-                <div id="ContribFactors_InjuryType" style='display: none;'>
-                    <div>
+                <tr id="ContribFactors_InjuryType">
+                    <td>
                         @Html.LabelFor(model => model.IRP_InjuryType, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:50px;" })
-                        <div class="row-margin">
-                            @Html.EditorFor(model => model.IRP_InjuryType, new { htmlAttributes = new { @class = "form-control", maxlength = "249", @placeholder = "Injury Type" } })
-                            @Html.ValidationMessageFor(model => model.IRP_InjuryType, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.IRP_InjuryType, new { htmlAttributes = new { @class = "form-control", maxlength = "249", @placeholder = "Injury Type" } })
+                        @Html.ValidationMessageFor(model => model.IRP_InjuryType, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
                 <!-- Injury Body Part -->
-                <div id="ContribFactors_InjuryBodyPart" style='display: none;'>
-                    <div>
+                <tr id="ContribFactors_InjuryBodyPart">
+                    <td>
                         @Html.LabelFor(model => model.IRP_BodyPart, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:50px;" })
-                        <div class="row-margin">
-                            @Html.EditorFor(model => model.IRP_BodyPart, new { htmlAttributes = new { @class = "form-control", maxlength = "249", @placeholder = "Injury Body Part" } })
-                            @Html.ValidationMessageFor(model => model.IRP_BodyPart, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.IRP_BodyPart, new { htmlAttributes = new { @class = "form-control", maxlength = "249", @placeholder = "Injury Type" } })
+                        @Html.ValidationMessageFor(model => model.IRP_BodyPart, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
                 <!-- Injury FollowUp -->
-                <div id="ContribFactors_InjuryFollowUp" style='display: none;'>
-                    <div>
+                <tr id="ContribFactors_InjuryFollowUp">
+                    <td>
                         @Html.LabelFor(model => model.IRP_InjuryFollowUp, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:50px;" })
-                        <div class="row-margin">
-                            @Html.DropDownList("IRP_InjuryFollowUp", ViewBag.injuryFollowUpItems as List<SelectListItem>, new { @class = "form-control", @style = "display:none" })
-                            @Html.ValidationMessageFor(model => model.IRP_InjuryFollowUp, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Unplanned Hospitalization -->
-            <div class="row-margin" id="ContribFactors_UnplannedHospitalization" style='display: none;'>
-                @Html.LabelFor(model => model.IRP_ContribUnplannedHospitalization, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:25px;" })
-                @Html.DropDownList("IRP_ContribUnplannedHospitalization", ViewBag.unplannedHospitalizationItems as List<SelectListItem>, new { @class = "form-control", @style = "display:none" })
-            </div>
-            <!-- Sexual Encounter -->
-            <div class="row-margin" id="ContribFactors_SexualEncounter" style='display: none;'>
-                @Html.LabelFor(model => model.IRP_ContribSexualEncounter, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:25px;" })
-                @Html.DropDownList("IRP_ContribSexualEncounter", ViewBag.sexualEncounterItems as List<SelectListItem>, new { @class = "form-control", @style = "display:none" })
-            </div>
-            <!-- Seclusion Items -->
-            <div class="row-margin" id="ContribFactors_Seclusion" style='display: none;'>
-                @Html.LabelFor(model => model.IRP_ContribSeclusion, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:25px;" })
-                @Html.DropDownList("IRP_ContribSeclusion", ViewBag.seclusionItems as List<SelectListItem>, new { @class = "form-control", @style = "display:none" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("IRP_InjuryFollowUp", ViewBag.injuryFollowUpItems as List<SelectListItem>, new { @class = "form-control", @style = "display:none" })
+                        @Html.ValidationMessageFor(model => model.IRP_InjuryFollowUp, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <!-- Unplanned Hospitalization -->
+                <tr id="ContribFactors_UnplannedHospitalization">
+                    <td>
+                        @Html.LabelFor(model => model.IRP_ContribUnplannedHospitalization, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:50px;" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("IRP_ContribUnplannedHospitalization", ViewBag.unplannedHospitalizationItems as List<SelectListItem>, new { @class = "form-control", @style = "display:none" })
+                        @Html.ValidationMessageFor(model => model.IRP_InjuryFollowUp, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <!-- Sexual Encounter -->
+                <tr id="ContribFactors_SexualEncounter">
+                    <td>
+                        @Html.LabelFor(model => model.IRP_ContribSexualEncounter, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:50px;" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("IRP_ContribSexualEncounter", ViewBag.sexualEncounterItems as List<SelectListItem>, new { @class = "form-control", @style = "display:none" })
+                        @Html.ValidationMessageFor(model => model.IRP_ContribSexualEncounter, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <!-- Seclusion Items -->
+                <tr id="ContribFactors_Seclusion">
+                    <td>
+                        @Html.LabelFor(model => model.IRP_ContribSeclusion, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:50px;" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("IRP_ContribSeclusion", ViewBag.seclusionItems as List<SelectListItem>, new { @class = "form-control", @style = "display:none" })
+                        @Html.ValidationMessageFor(model => model.IRP_ContribSexualEncounter, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
                 <!-- Seclusion Start Time -->
-                <div id="ContribFactors_SeclusionStartTime" style='display: none;'>
-                    <div>
+                <tr id="ContribFactors_SeclusionStartTime">
+                    <td>
                         @Html.LabelFor(model => model.IRP_SeclusionSTTime, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:50px;" })
-                        <div class="row-margin">
-                            @Html.EditorFor(model => model.IRP_SeclusionSTTime, new { htmlAttributes = new { @class = "form-control", @type = "time", @maxlength = "249", @placeholder = "Seclusion Start Time" } })
-                            @Html.ValidationMessageFor(model => model.IRP_SeclusionSTTime, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.IRP_SeclusionSTTime, new { htmlAttributes = new { @class = "form-control", @type = "time", @maxlength = "249", @placeholder = "Seclusion Start Time" } })
+                        @Html.ValidationMessageFor(model => model.IRP_SeclusionSTTime, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
                 <!-- Seclusion End Time -->
-                <div id="ContribFactors_SeclusionEndTime" style='display: none;'>
-                    <div>
+                <tr id="ContribFactors_SeclusionEndTime">
+                    <td>
                         @Html.LabelFor(model => model.IRP_SeclusionENTime, htmlAttributes: new { @class = "col-md-3", @style = "padding-left:50px;" })
-                        <div class="row-margin">
-                            @Html.EditorFor(model => model.IRP_SeclusionENTime, new { htmlAttributes = new { @class = "form-control", @type = "time", @maxlength = "249", @placeholder = "Seclusion End Time" } })
-                            @Html.ValidationMessageFor(model => model.IRP_SeclusionENTime, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.IRP_SeclusionENTime, new { htmlAttributes = new { @class = "form-control", @type = "time", @maxlength = "249", @placeholder = "Seclusion Start Time" } })
+                        @Html.ValidationMessageFor(model => model.IRP_SeclusionENTime, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+            </table>
         </div>
 
         <hr />
@@ -428,7 +511,7 @@
         </div>
 
         <hr />
-        
+
         <!--Report On-->
         <div class="container form-group" id="reportOn">
             <div class="row-margin">
@@ -440,15 +523,15 @@
             </div>
         </div>
 
-        <hr/>
+        <hr />
 
         <!--Prepared By-->
         <div>
             <label>
                 Reported By
             </label>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <table width="100%">
                 <tr>
                     <!--Prepared By First Name-->
@@ -463,14 +546,14 @@
                     <td width="25%" align="center">
                         @Html.LabelFor(model => model.IRP_PreparedByLastName)
                     </td>
-                    <td>  
+                    <td>
                         @Html.EditorFor(model => model.IRP_PreparedByLastName, new { htmlAttributes = new { @class = "form-control", maxlength = "99" } })
                         @Html.ValidationMessageFor(model => model.IRP_PreparedByLastName, "", new { @class = "text-danger" })
                     </td>
                 </tr>
             </table>
         </div>
-            
+
         <hr />
 
         <!-- Witness Name -->
@@ -486,8 +569,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                    </td>
+                    <td></td>
                     <td>
                         <small class="text-muted">
                             Witness Name, Position
@@ -500,7 +582,7 @@
         </div>
 
         <hr />
-        
+
         <!-- Notification -->
         <div class="container form-group">
             <table border="1" width="100%">
@@ -514,8 +596,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                    </td>
+                    <td></td>
                     <td>
                         <small class="text-muted">
                             Notified Person Name, Position, Date of Notification
@@ -526,7 +607,7 @@
                 </tr>
             </table>
         </div>
-        
+
         <!-- Description -->
         <div class="container form-group">
             <table border="1" width="100%">
@@ -540,8 +621,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                    </td>
+                    <td></td>
                     <td>
                         <small class="text-muted">
                             Maximum 1,000 characters allowed
@@ -566,8 +646,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                    </td>
+                    <td></td>
                     <td>
                         <small class="text-muted">
                             Maximum 1,000 characters allowed
@@ -577,11 +656,11 @@
             </table>
         </div>
 
-        <hr/>
+        <hr />
 
         <div class="form-group">
             <div class="col-md-2">
-                <input type="submit" value="Save" class="btn btn-default" onclick="nullUncheckedNOIContrib()"/>
+                <input type="submit" value="Save" class="btn btn-default" onclick="nullUncheckedNOIContrib()" />
             </div>
         </div>
 
