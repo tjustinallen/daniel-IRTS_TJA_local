@@ -202,7 +202,7 @@ namespace DanielIncidentReporting.Controllers
 
             // Contributing Factors - 3. Police Involvement dropdown list items - Gina Chin Fatt
             List<SelectListItem> policeInvolvementItems = new List<SelectListItem>();
-            policeInvolvementItems.Add(new SelectListItem { Value = "-1", Text = "Involvement with Police/Fire/Rescue", Selected = true, Disabled = true });
+            policeInvolvementItems.Add(new SelectListItem { Value = "-1", Text = "Police/Fire/Rescue", Selected = true, Disabled = true });
             policeInvolvementItems.Add(new SelectListItem { Value = "Baker Act", Text = "Baker act" });
             policeInvolvementItems.Add(new SelectListItem { Value = "Medical Emergency", Text = "Medical Emergency" });
             policeInvolvementItems.Add(new SelectListItem { Value = "Elopement", Text = "Elopement" });
@@ -366,7 +366,7 @@ namespace DanielIncidentReporting.Controllers
 
             // Contributing Factors - 3. Police Involvement dropdown list items - Gina Chin Fatt
             List<SelectListItem> policeInvolvementItems = new List<SelectListItem>();
-            policeInvolvementItems.Add(new SelectListItem { Value = "-1", Text = "Involvement with Police/Fire/Rescue", Selected = true, Disabled = true });
+            policeInvolvementItems.Add(new SelectListItem { Value = "-1", Text = "Police/Fire/Rescue", Selected = true, Disabled = true });
             policeInvolvementItems.Add(new SelectListItem { Value = "Baker Act", Text = "Baker act" });
             policeInvolvementItems.Add(new SelectListItem { Value = "Medical Emergency", Text = "Medical Emergency" });
             policeInvolvementItems.Add(new SelectListItem { Value = "Elopement", Text = "Elopement" });
