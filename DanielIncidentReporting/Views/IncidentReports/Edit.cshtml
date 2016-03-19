@@ -606,6 +606,8 @@
                 </tr>
             </table>
         </div>
+
+        <hr/>
         
         <!-- Description -->
         <div>
@@ -685,6 +687,7 @@
     var IRP_SeclusionValue = '@Html.DisplayTextFor(model => model.IRP_Seclusion)';
 
     //Items With No Contributing Factors
+    var IRP_AMAValue = '@Html.DisplayTextFor(model => model.IRP_AMA)';
     var IRP_DeathValue = '@Html.DisplayTextFor(model => model.IRP_Death)';
     var IRP_SuicideGesturesValue = '@Html.DisplayTextFor(model => model.IRP_SuicideGestures)';
     var IRP_SubstanceAbuseValue = '@Html.DisplayTextFor(model => model.IRP_SubstanceAbuse)';
@@ -892,6 +895,13 @@
         }
 
         //Items With No Contributing Factors
+        //AMA
+        if (IRP_AMAValue == "1") {
+            document.getElementById("cBox_AMA").checked = true;
+        }
+        else if (IRP_AMAValue != "1") {
+            document.getElementById("cBox_AMA").checked = false;
+        }
         //Death
         if (IRP_DeathValue == "1")
         {
